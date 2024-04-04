@@ -64,6 +64,7 @@ alert($alert); ?>
                         <th>Telefon</th>
                         <th>E-mail</th>
                         <th style="width: 60px;">Level</th>
+                        <th>Produkt</th>
                         <th style="width: 50px;">zaznacz</th>
                     </tr>
                 </thead>
@@ -92,6 +93,7 @@ alert($alert); ?>
                         <th>Telefon</th>
                         <th>E-mail</th>
                         <th style="width: 60px;">Level</th>
+                        <th>Produkt</th>
                         <th style="width: 50px;">zaznacz</th>
                     </tr>
                 </thead>
@@ -203,7 +205,7 @@ window.onload = function()
         }
         if(len){
             $.ajax({
-                url: "zadania/zadania_PrzydzielTygodnioweAjax.php",
+                url: "zadaniscriptnia_PrzydzielTygodnioweAjax.php",
                 method: "POST",
                 data: {
                     user:'<?=$user_mod?>',
@@ -272,11 +274,12 @@ function  pokaz_leady(){
                         d4,
                         v.email,
                         level,
+                        v.produkt,
                         '<input data-klient-id="'+v.klient_id+'" type="checkbox">'
                     ] 
                     ).node();
                     $(rowNode).attr('id','klient-'+v.klient_id+'-row');
-                    $('td:eq(4),td:eq(5)',rowNode).addClass( 'text-center');
+                    $('td:eq(4),td:eq(5),td:eq(6)',rowNode).addClass( 'text-center');
                 });
                 table.draw();
             }
