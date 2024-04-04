@@ -205,7 +205,7 @@ window.onload = function()
         }
         if(len){
             $.ajax({
-                url: "zadaniscriptnia_PrzydzielTygodnioweAjax.php",
+                url: "zadania/zadania_PrzydzielTygodnioweAjax.php",
                 method: "POST",
                 data: {
                     user:'<?=$user_mod?>',
