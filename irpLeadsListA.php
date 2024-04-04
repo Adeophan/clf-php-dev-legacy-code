@@ -148,11 +148,22 @@ window.onload = function()
     // ZAZNACZ WIELE LEADOW I WYŚWIETL FORMULARZ
     $(document).on('click','.btn-add-task-to-many',function(e)
     {
-        
+        e.preventDefault();
+        var iloscLeadow = $(this).data('ile');
+        var tabela_leadow = $(this).closest('.grupa-leadow').find('table.tabela-leadow').DataTable();
+        var leady = $('tbody tr',tabela_leadow.table().node());
 
-        
+        if(iloscLeadow >= 0) {
+            leady.find('input[type="checkbox"]').prop('checked',false);
+        }
 
-
+        if(iloscLeadow > 0) {
+            for(var i = 0; i < Math.min(iloscLeadow,leady.length); i++) {
+                $(leady[i]).find('input[type="checkbox"]').prop('checked',true);
+            }
+            $('#czarne-tlo-przydziel-zadanie-form').show();
+            $('#czarne-tlo-przydziel-zadanie-form input[name="grupa_leadow"]').val($(this).closest('.grupa-leadow').attr('id'));
+        }
 
     });
     
